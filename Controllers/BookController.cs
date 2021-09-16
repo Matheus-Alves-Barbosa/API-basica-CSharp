@@ -1,5 +1,6 @@
 ﻿using AulaUdemy.Model;
 using AulaUdemy.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -7,6 +8,7 @@ namespace AulaUdemy.Controllers
 {
     [ApiVersion("1")]
     [ApiController]
+    [Authorize("Bearer")]
     [Route("api/v{version:apiVersion}/[controller]")]
     public class BookController : ControllerBase
     {
@@ -29,26 +31,26 @@ namespace AulaUdemy.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(long id)
         {
-            var book = _bookService.FindByID(id);
-            if (book == null)
+            var bookVO = _bookService.FindByID(id);
+            if (bookVO == null)
                 return NotFound();
-            return Ok(book);
+            return Ok(bookVO);
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] Book book)
+        public IActionResult Post([FromBody] BookVO bookVO)
         {
-            if (book == null)
+            if (bookVO == null)
                 return BadRequest();
-            return Ok(_bookService.Create(book));
+            return Ok(_bookService.Create(bookVO));
         }
 
         [HttpPut]
-        public IActionResult Put([FromBody] Book book)
+        public IActionResult Put([FromBody] BookVO bookVO)
         {
-            if (book == null)
+            if (bookVO == null)
                 return BadRequest();
-            return Ok(_bookService.Update(book));
+            return Ok(_bookService.Update(bookVO));
         }
 
         [HttpDelete("{id}")]

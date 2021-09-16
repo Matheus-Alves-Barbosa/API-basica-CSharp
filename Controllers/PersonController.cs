@@ -1,12 +1,15 @@
-﻿using AulaUdemy.Model;
+﻿using AulaUdemy.Data.VO;
 using AulaUdemy.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
 
 namespace AulaUdemy.Controllers
 {
     [ApiVersion("1")]
     [ApiController]
+    [Authorize("Bearer")]
     [Route("api/v{version:apiVersion}/[controller]")]
     public class PersonController : ControllerBase
     {
@@ -21,37 +24,54 @@ namespace AulaUdemy.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType((200), Type = typeof(List<PersonVO>))]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         public IActionResult Get()
         {
             return Ok(_personService.FindAll());
         }
 
         [HttpGet("{id}")]
+        [ProducesResponseType((200), Type = typeof(PersonVO))]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         public IActionResult Get(long id)
         {
-            var person = _personService.FindByID(id);
-            if (person == null)
+            var PersonVO = _personService.FindByID(id);
+            if (PersonVO == null)
                 return NotFound();
-            return Ok(person);
+            return Ok(PersonVO);
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] Person person)
+        [ProducesResponseType((200), Type = typeof(PersonVO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        public IActionResult Post([FromBody] PersonVO PersonVO)
         {
-            if (person == null)
+            if (PersonVO == null)
                 return BadRequest();
-            return Ok(_personService.Create(person));
+            return Ok(_personService.Create(PersonVO));
         }
 
         [HttpPut]
-        public IActionResult Put([FromBody] Person person)
+        [ProducesResponseType((200), Type = typeof(PersonVO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        public IActionResult Put([FromBody] PersonVO personVO)
         {
-            if (person == null)
+            if (personVO == null)
                 return BadRequest();
-            return Ok(_personService.Update(person));
+            return Ok(_personService.Update(personVO));
         }
 
         [HttpDelete("{id}")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         public IActionResult Delete(long id)
         {
             _personService.Delete(id);

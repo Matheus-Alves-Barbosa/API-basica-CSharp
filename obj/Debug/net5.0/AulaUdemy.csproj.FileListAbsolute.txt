@@ -45,3 +45,14 @@ C:\Users\mathe\source\repos\AulaUdemy\bin\Debug\net5.0\Serilog.Settings.Configur
 C:\Users\mathe\source\repos\AulaUdemy\bin\Debug\net5.0\Serilog.Sinks.Console.dll
 C:\Users\mathe\source\repos\AulaUdemy\bin\Debug\net5.0\Serilog.Sinks.Debug.dll
 C:\Users\mathe\source\repos\AulaUdemy\bin\Debug\net5.0\Serilog.Sinks.File.dll
+C:\Users\mathe\source\repos\AulaUdemy\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Users\mathe\source\repos\AulaUdemy\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\mathe\source\repos\AulaUdemy\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\mathe\source\repos\AulaUdemy\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\mathe\source\repos\AulaUdemy\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\mathe\source\repos\AulaUdemy\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\mathe\source\repos\AulaUdemy\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\mathe\source\repos\AulaUdemy\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\mathe\source\repos\AulaUdemy\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\mathe\source\repos\AulaUdemy\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\mathe\source\repos\AulaUdemy\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
